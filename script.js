@@ -1,4 +1,11 @@
+// Hey ! J'espère que tu trouves le code alright, il se repète beacoup, une fois les trois niveaux terminés, je vais essayer de regrouper mes fonction 1 2 et 3 en une seule avec uniquement des variables qui changent à l'interieur. 
+
+
+
 // cont
+
+
+
 
 const _initTime = Date.now()
 
@@ -32,24 +39,48 @@ const LEVEL_1 = [
   ]
   
   const LEVEL_3 = [
-    ["*","*","*","*","*","*","*","*"],
-    ["*","*","*","*","S","*","*","*"],
-    ["*","*","*","*",".","*","*","*"],
-    ["*","*","*","*",".","*","*","*"],
-    ["*","*","*","*",".","*","*","*"],
-    ["*",".",".",".",".",".",".","*"],
-    ["*",".","*","*","*","*",".","*"],
-    ["*",".",".","*","*","*",".","*"],
-    ["*",".",".","*","*","*",".","*"],
-    ["*","*",".","*","*","*","*","*"],
-    ["*","T",".","*","*","*","*","*"],
-    ["*","*","*","*","*","*","*","*"]
+    ["*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"],
+    ["*","*","*","*","S","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*"],
+    ["*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*"],
+    ["*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*"],
+    ["*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*"],
+    ["*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*"],
+    ["*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*"],
+    [".",".",".","*","*","*",".",".",".",".",".","*","*","*",".",".","*",".",".","*","*","*",".",".",".",".",".","*","*","*",".","T"],
+    ["*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*"],
+    ["*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*"],
+    ["*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*"],
+    ["*","*",".","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*",".","*","*","*","*","*","*",".","*","*","*","*","*","*"], 
+    ["*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*"],
+    ["*",".",".","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*"],
+    [".",".",".","*","*","*",".",".",".",".",".","*","*","*",".",".","*",".",".","*","*","*",".",".",".",".",".","*","*","*",".","."],
+    ["*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*"],
+    ["*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*"],
+    ["*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*"],
+    ["*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*","*","*","*","*","*","*"],
+    ["*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*","*",".",".",".",".",".",".","*"],
+    ["*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*","*",".","*","*","*","*",".","*"],
+    [".",".",".","*","*","*",".",".",".",".",".","*","*","*",".",".",".",".",".","*","*","*",".",".",".",".",".","*","*","*",".","."],
+    ["*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*","*",".",".","*","*","*",".","*"],
+    ["*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*","*","*",".","*","*","*","*","*"],
+    ["*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*","*",".",".","*","*","*","*","*"],
+    ["*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"]
   ]
 
 
 
 
 // function
+victory = () => {
+    let main = document.querySelector('main')
+    main.remove()
+    let victoryscreen = document.createElement('div')
+    victoryscreen.setAttribute('id','victory')
+    let texto = document.createTextNode(`BRAVO! tu as mis ${getElapsedTime()}`)
+    victoryscreen.append(texto)
+    document.body.append(victoryscreen)
+}
+
 waitaminute = () => {
     let wait = document.createElement('div')
     let main = document.querySelector('main')
@@ -68,11 +99,10 @@ bravo = () => {
     score.append(yourTime)
     yourTime.append(timeText)
     LEVEL = 20
+    return
 
 }
-maze3 = () => {
-    console.log('minute papillion');
-}
+
 bravo2 = () => {
     alert('Well played ! Thanks to you, Jack will invest all his money in Bitcoin and Etherum')
     clear2()
@@ -83,6 +113,19 @@ bravo2 = () => {
     score.append(yourTime)
     yourTime.append(timeText)
     LEVEL = 30
+    return
+
+}
+bravo3 = () => {
+    alert('Well played ! Thanks to you, Jack will invest all his money in Bitcoin and Etherum AND NFT')
+    clear3()
+    victory()
+    let yourTime = document.createElement('div')
+    yourTime.setAttribute('class','time3')
+    let timeText = document.createTextNode(`Well played you did the second stage in ${getElapsedTime()}`)
+    score.append(yourTime)
+    yourTime.append(timeText)
+    return
 
 }
 getElapsedTime = () => {
@@ -96,6 +139,10 @@ clear = () =>  {
 clear2 = () =>  {  
     let x = document.getElementById('maze2')
     x.remove()
+}
+clear3 = () => {
+    let x = document.getElementById('maze3')
+    x.remove()  
 }
 
 goinRightMaze1 = () => {
@@ -119,6 +166,7 @@ goinRightMaze1 = () => {
             }
             else if(elementParent[xofS+1] === "T")  {
                 bravo()
+                break
             }
         }
     }
@@ -144,7 +192,35 @@ goinRightMaze2 = () => {
             }
             else if(elementParent[xofS+1] === "T")  {
                 bravo2()
-                waitaminute()
+                //waitaminute()
+                break
+    
+            }
+        }
+    }
+}
+goinRightMaze3 = () => {
+    for (const elementParent of LEVEL_3) {
+        //console.log(elementParent);
+        for (const element of elementParent) {
+            //console.log(element);
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                //console.log('S');
+                elementParent.splice(xofS+1, 1, "S")
+                elementParent.splice(xofS, 1, '.')
+                clear3()
+                maze3()
+                //console.log(elementParent[xofS+2]);
+                break
+            }
+            else if (elementParent[xofS+1] === "*") {
+                break;
+            }
+            else if(elementParent[xofS+1] === "T")  {
+                bravo3()
+                //waitaminute()
+                break
     
             }
         }
@@ -192,6 +268,27 @@ goingLeftMaze2 = () => {
         }
     }
 }
+goingLeftMaze3 = () => {
+    for (const elementParent of LEVEL_3) {
+        //console.log(elementParent);
+        for (const element of elementParent) {
+            //console.log(element);
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                //console.log('S');
+                elementParent.splice(xofS-1, 1, "S")
+                elementParent.splice(xofS, 1, '.')
+                clear3()
+                maze3()
+                //console.log(elementParent[xofS+2]);
+                break
+            }
+            else if (elementParent[xofS-1] === "*") {
+                break;
+            }
+        }
+    }
+}
 goingDownMaze1 = () => {
     for (const elementParent of LEVEL_1) {
         for (const element of elementParent) {
@@ -218,7 +315,7 @@ goingDownMaze2 = () => {
         for (const element of elementParent) {
             let xofS = elementParent.indexOf('S')
             if (element === "S" ) {
-                console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) + 2][xofS]);
+                // console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) + 2][xofS]);
                 if ((LEVEL_2[LEVEL_2.indexOf(elementParent) + 1][xofS]) === '*') {
                     //createMaze()
                     break
@@ -227,6 +324,26 @@ goingDownMaze2 = () => {
                     elementParent.splice(xofS, 1, '.')
                     clear2()
                     maze2()
+                return
+                }
+            }
+        }
+    }
+}
+goingDownMaze3 = () => {
+    for (const elementParent of LEVEL_3) {
+        for (const element of elementParent) {
+            let xofS = elementParent.indexOf('S')
+            if (element === "S" ) {
+                // console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) + 2][xofS]);
+                if ((LEVEL_3[LEVEL_3.indexOf(elementParent) + 1][xofS]) === '*') {
+                    //createMaze()
+                    break
+                } else {
+                    LEVEL_3[LEVEL_3.indexOf(elementParent) + 1].splice(xofS, 1, 'S')
+                    elementParent.splice(xofS, 1, '.')
+                    clear3()
+                    maze3()
                 return
                 }
             }
@@ -263,14 +380,14 @@ goingUpMaze2 = () => {
             let xofS = elementParent.indexOf('S')
             if (element === "S") {
                 LEVEL_2.indexOf(elementParent)
-                console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) - 1][xofS]);
+                // console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) - 1][xofS]);
                 if (LEVEL_2[LEVEL_2.indexOf(elementParent) - 1][xofS] === "*") {
                     maze2()
                     return
                 } else {
                 elementParent.splice(xofS, 1, '.')
                 LEVEL_2[LEVEL_2.indexOf(elementParent) - 1].splice(xofS, 1, 'S')
-                console.log(xofS);
+                // console.log(xofS);
                 //clear2()
                 maze2()
                 return
@@ -279,9 +396,58 @@ goingUpMaze2 = () => {
         }
     }
 }
+goingUpMaze3 = () => {
+    for (const elementParent of LEVEL_3) {
+        for (const element of elementParent) {
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                LEVEL_3.indexOf(elementParent)
+                // console.log(LEVEL_2[LEVEL_2.indexOf(elementParent) - 1][xofS]);
+                if (LEVEL_3[LEVEL_3.indexOf(elementParent) - 1][xofS] === "*") {
+                    maze3()
+                    return
+                } else {
+                elementParent.splice(xofS, 1, '.')
+                LEVEL_3[LEVEL_3.indexOf(elementParent) - 1].splice(xofS, 1, 'S')
+                // console.log(xofS);
+                //clear2()
+                maze3()
+                return
+                }
+            }
+        }
+    }
+}
 
+maze3 = () => {
+    let main = document.querySelector('main')
+        let maze = document.createElement('div')
+        maze.setAttribute('id', 'maze3')
+        main.append(maze)
 
-
+        n = 0
+        LEVEL_3.forEach(element => {
+            let divx = document.createElement('div')
+            divx.setAttribute('class', "divX")
+        
+                LEVEL_3[n].forEach(element => {
+                    let divy = document.createElement('p')
+                    divx.append(divy)
+                    //divy.append(element)
+                    if (element === '*') {
+                        divy.setAttribute('class', 'wall3')
+                    } else if ( element === '.') {
+                        divy.setAttribute('class', 'path2')
+                    } else if ( element === 'S') {
+                        divy.setAttribute('class', 'hero1')
+                    } else {
+                        divy.setAttribute('class', 'treasure1')
+                    }
+                });
+            maze.append(divx)
+            n += 1
+        });
+}
 maze2 = () => {
     let main = document.querySelector('main')
         let maze = document.createElement('div')
@@ -361,6 +527,8 @@ window.addEventListener('keydown', (event) => {
         goinRightMaze1()  
     } else if( event.key === 'ArrowRight' && LEVEL == 20) {
         goinRightMaze2()
+    } else if( event.key === 'ArrowRight' && LEVEL == 30) {
+        goinRightMaze3()
     }
 })
 
@@ -368,8 +536,9 @@ window.addEventListener('keydown', (event) => {
     if( event.key === 'ArrowLeft' && LEVEL == 10) {
         goingLeftMaze1()
     } else if ( event.key === 'ArrowLeft' && LEVEL == 20) {
-       console.log('hi');
         goingLeftMaze2()
+    } else if ( event.key === 'ArrowLeft' && LEVEL == 30) {
+        goingLeftMaze3()
     }
 })
 
@@ -379,7 +548,9 @@ window.addEventListener('keydown', (event) => {
         goingDownMaze1()
     } else if ( event.key === 'ArrowDown' && LEVEL == 20) {
         goingDownMaze2()
-     }
+    } else if ( event.key === 'ArrowDown' && LEVEL == 30) {
+        goingDownMaze3()
+    }
 })
 
 
@@ -388,18 +559,21 @@ window.addEventListener('keydown', (event) => {
         clear()
         goingUpMaze1()
     } else if ( event.key === 'ArrowUp' && LEVEL == 20) {
-        console.log('heelo there');
         clear2()
         goingUpMaze2()
+    } else if ( event.key === 'ArrowUp' && LEVEL == 30) {
+        clear3()
+        goingUpMaze3()
     }
 })
 
-window.addEventListener('keydown', (event) => {
-    if( event.key === " ") {
-        clear()
-    } 
-})
+// window.addEventListener('keydown', (event) => {
+//     if( event.key === " ") {
+//         victory()
+//     } 
+// })
 
 //funcitons
 
 createMaze()
+
