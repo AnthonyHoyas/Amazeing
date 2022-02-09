@@ -1,11 +1,17 @@
+// cont
+
+const _initTime = Date.now()
+
+let score = document.getElementById('score')
+
 const LEVEL_1 = [
     ["*","*","*","*","*","*","*","*","*","*","*",".","*"],
     ["*","S",".",".",".",".",".","*","*",".","*",".","T"],
     ["*","*","*","*","*",".",".",".",".",".","*",".","*"],
     ["*","*","*","*","*",".","*","*","*",".","*",".","*"],
+    ["*","*","*","*","*","P","*","*","*","*","*",".","*"],
     ["*","*","*","*","*",".","*","*","*","*","*",".","*"],
-    ["*","*","*","*","*",".","*","*","*","*","*",".","*"],
-    ["*","*","*","*","*",".",".",".",".",".",".",".","*"],
+    ["*","*","*","*","*",".",".",".",".",".","P",".","*"],
     ["*","*","*","*","*",".","*","*","*","*","*","*","*"],
     ["*",".",".",".",".",".",".",".",".",".","*","*","*"],
     ["*",".","*","*","*","*","*","*",".","E",".","*","*"],
@@ -40,22 +46,130 @@ const LEVEL_1 = [
 
 
 
+
+// function
+getElapsedTime = () => {
+    return Number((Date.now() - _initTime) / 1000).toFixed(2) + 's'
+  }
+
 clear = () =>  {  
     let x = document.getElementById('maze')
     x.remove()
 }
 
-window.addEventListener('keydown', (event) => {
-    if( event.key === " ") {
-        clear()
-    } 
-})
+goinRightMaze1 = () => {
+
+    for (const elementParent of LEVEL_1) {
+        //console.log(elementParent);
+        for (const element of elementParent) {
+            //console.log(element);
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                //console.log('S');
+                elementParent.splice(xofS+1, 1, "S")
+                elementParent.splice(xofS, 1, '.')
+                clear()
+                createMaze()
+                //console.log(elementParent[xofS+2]);
+                break
+            }
+            else if (elementParent[xofS+1] === "*") {
+                break;
+            }
+            else if(elementParent[xofS+1] === "T")  {
+                console.log('presque');
+                alert('Well played ! Thanks to you, Jack will invest all his money in Bitcoin')
+                clear()
+                maze2()
+                let yourTime = document.createElement('div')
+                yourTime.setAttribute('class','time')
+                let timeText = document.createTextNode(`Well played you did the first stage in ${getElapsedTime()}`)
+                score.append(yourTime)
+                yourTime.append(timeText)
+                console.log(getElapsedTime())
+                break
+    
+            }
+        }
+    }
+}
+
+goingLeftMaze1 = () => {
+    for (const elementParent of LEVEL_1) {
+        //console.log(elementParent);
+        for (const element of elementParent) {
+            //console.log(element);
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                //console.log('S');
+                elementParent.splice(xofS-1, 1, "S")
+                elementParent.splice(xofS, 1, '.')
+                clear()
+                createMaze()
+                //console.log(elementParent[xofS+2]);
+                break
+            }
+            else if (elementParent[xofS-1] === "*") {
+                break;
+            } 
+        }
+    }
+}
+
+goingDownMaze1 = () => {
+    for (const elementParent of LEVEL_1) {
+        for (const element of elementParent) {
+            let xofS = elementParent.indexOf('S')
+            if (element === "S" ) {
+                console.log(LEVEL_1[LEVEL_1.indexOf(elementParent) + 2][xofS]);
+                if ((LEVEL_1[LEVEL_1.indexOf(elementParent) + 1][xofS]) === '*') {
+                    //createMaze()
+                    break
+                } else {
+                    LEVEL_1[LEVEL_1.indexOf(elementParent) + 1].splice(xofS, 1, 'S')
+                    elementParent.splice(xofS, 1, '.')
+                    clear()
+                createMaze()
+                return
+                }
+            }
+
+        }
+    }
+}
+
+goingUpMaze1 = () => {
+    for (const elementParent of LEVEL_1) {
+        for (const element of elementParent) {
+            let xofS = elementParent.indexOf('S')
+            if (element === "S") {
+                LEVEL_1.indexOf(elementParent)
+                console.log(LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS]);
+                if (LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS] === "*") {
+                    createMaze()
+                    return
+                } else {
+                elementParent.splice(xofS, 1, '.')
+                LEVEL_1[LEVEL_1.indexOf(elementParent) - 1].splice(xofS, 1, 'S')
+                console.log(xofS);
+                //clear()
+                createMaze()
+                return
+                }
+            }
+
+        }
+    }
+}
+
+
 
 maze2 = () => {
     let main = document.querySelector('main')
         let maze = document.createElement('div')
         maze.setAttribute('id', 'maze')
         main.append(maze)
+
         n = 0
         LEVEL_2.forEach(element => {
             let divx = document.createElement('div')
@@ -78,9 +192,10 @@ maze2 = () => {
             maze.append(divx)
             n += 1
         });
+        alert('working on lvl2')
 }
 
-    createMaze = () => {
+createMaze = () => {
         let main = document.querySelector('main')
         let maze = document.createElement('div')
         maze.setAttribute('id', 'maze')
@@ -102,6 +217,8 @@ maze2 = () => {
                         divy.setAttribute('class', 'hero')
                     } else if (element === 'T') {
                         divy.setAttribute('class', 'treasure')
+                    } else if (element === 'P') {
+                        divy.setAttribute('class', 'coin')
                     } else {
                         divy.setAttribute('class', 'skeleton')
                     }
@@ -109,135 +226,43 @@ maze2 = () => {
             maze.append(divx)
             n += 1
         });
-    }
-    
-    createMaze()
+}
+  
 
-// going to Right
+
+//event 
+
+
+window.addEventListener('keydown', (event) => {
+    if( event.key === " ") {
+        clear()
+    } 
+})
 
 window.addEventListener('keydown', (event) => {
     if( event.key === 'ArrowRight') {
-
-        for (const elementParent of LEVEL_1) {
-            //console.log(elementParent);
-            for (const element of elementParent) {
-                //console.log(element);
-                let xofS = elementParent.indexOf('S')
-                if (element === "S") {
-                    //console.log('S');
-                    elementParent.splice(xofS+1, 1, "S")
-                    elementParent.splice(xofS, 1, '.')
-                    clear()
-                    createMaze()
-                    //console.log(elementParent[xofS+2]);
-                    break
-                }
-                else if (elementParent[xofS+1] === "*") {
-                    break;
-                }
-                else if(elementParent[xofS+1] === "T")  {
-                    console.log('presque');
-                    alert('Bien joué, Grace à toi, Jack va pouvoir investir dans le Bitcoin')
-                    clear()
-                    maze2()
-                    break
-
-                }
-            }
-        }
-        
-
+        goinRightMaze1()  
     }
 })
-
-//Going To Left
 
 window.addEventListener('keydown', (event) => {
     if( event.key === 'ArrowLeft') {
-
-        for (const elementParent of LEVEL_1) {
-            //console.log(elementParent);
-            for (const element of elementParent) {
-                //console.log(element);
-                let xofS = elementParent.indexOf('S')
-                if (element === "S") {
-                    //console.log('S');
-                    elementParent.splice(xofS-1, 1, "S")
-                    elementParent.splice(xofS, 1, '.')
-                    clear()
-                    createMaze()
-                    //console.log(elementParent[xofS+2]);
-                    break
-                }
-                else if (elementParent[xofS-1] === "*") {
-                    break;
-                } 
-            }
-        }
-
+        goingLeftMaze1()
     }
 })
-
-// going down
 
 
 window.addEventListener('keydown', (event) => {
     if( event.key === 'ArrowDown') {
-
-        
-        for (const elementParent of LEVEL_1) {
-            for (const element of elementParent) {
-                let xofS = elementParent.indexOf('S')
-                if (element === "S" ) {
-                    console.log(LEVEL_1[LEVEL_1.indexOf(elementParent) + 2][xofS]);
-                    if ((LEVEL_1[LEVEL_1.indexOf(elementParent) + 1][xofS]) === '*') {
-                        //createMaze()
-                        break
-                    } else {
-                        LEVEL_1[LEVEL_1.indexOf(elementParent) + 1].splice(xofS, 1, 'S')
-                        elementParent.splice(xofS, 1, '.')
-                        clear()
-                    createMaze()
-                    return
-                    }
-                }
-
-            }
-        }
-
+        goingDownMaze1()
     }
 })
-
-
-// going up
 
 
 window.addEventListener('keydown', (event) => {
     if( event.key === 'ArrowUp') {
         clear()
-
-        for (const elementParent of LEVEL_1) {
-            for (const element of elementParent) {
-                let xofS = elementParent.indexOf('S')
-                if (element === "S") {
-                    LEVEL_1.indexOf(elementParent)
-                    console.log(LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS]);
-                    if (LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS] === "*") {
-                        createMaze()
-                        return
-                    } else {
-                    elementParent.splice(xofS, 1, '.')
-                    LEVEL_1[LEVEL_1.indexOf(elementParent) - 1].splice(xofS, 1, 'S')
-                    console.log(xofS);
-                    //clear()
-                    createMaze()
-                    return
-                    }
-                }
-
-            }
-        }
-
+        goingUpMaze1()
     }
 })
 
@@ -246,3 +271,7 @@ window.addEventListener('keydown', (event) => {
         clear()
     } 
 })
+
+//funcitons
+
+createMaze()

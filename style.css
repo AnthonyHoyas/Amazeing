@@ -5,15 +5,29 @@
 }
 
 main {
-    width: 100vw;
+    width: 50%;
     height: 100vh;
 }
 #maze {
-    width: 60%;
+    height: 84.1vh;
     background-color: brown ;
 }
 p {
     text-align: center;
+}
+body {
+    display: flex;
+}
+#score {
+    width: 50vw;
+    height: auto;
+    background-color: rgb(29, 27, 27);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    font-size: 2rem;
 }
 
 .divX {
@@ -25,7 +39,7 @@ p {
     background-size: contain;
     background-repeat: no-repeat;
     width:5vw;
-    height: 10vh;
+    height: 7vh;
 }
 
 .path { 
@@ -51,6 +65,12 @@ p {
 
 .skeleton {
     background-image: url(https://cdn4.iconfinder.com/data/icons/halloween-2193/64/skeleton-human-halloween-bone-scary-512.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
+    width:5vw;
+    background-size: cover;
+}
+
+.coin {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/cash-card-starters-colored/48/JD-02-512.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
     width:5vw;
     background-size: cover;
 }

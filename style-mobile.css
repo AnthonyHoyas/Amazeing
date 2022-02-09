@@ -54,3 +54,10 @@ p {
     width: 7vw;
     background-size: cover;
 }
+
+
+.coin {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/cash-card-starters-colored/48/JD-02-512.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
+    width:7vw;
+    background-size: cover;
+}
