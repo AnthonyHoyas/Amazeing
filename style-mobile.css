@@ -9,7 +9,7 @@ main {
     height: 100vh;
 }
 #maze {
-    width: 60%;
+    width: 100%;
     background-color: brown ;
 }
 p {
@@ -18,19 +18,19 @@ p {
 
 .divX {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .wall { 
     background-image: url(https://cdn-icons-png.flaticon.com/512/740/740842.png);
     background-size: contain;
     background-repeat: no-repeat;
-    width:5vw;
-    height: 10vh;
+    width:7vw;
+    height: 4vh;
 }
 
 .path { 
     background-image: url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
-    width:5vw;
+    width: 7vw;
     background-size: cover;
 
 
@@ -38,19 +38,19 @@ p {
 
 .hero {
     background-image: url(https://assets.webiconspng.com/uploads/2017/09/Pirate-PNG-Image-55374.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
-    width:5vw;
+    width: 7vw;
     background-size: cover;
 
 
 }
 .treasure {
     background-image: url(https://cdn1.iconfinder.com/data/icons/cash-coin-essentials-colored/48/JD-28-512.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
-    width:5vw;
+    width: 7vw;
     background-size: cover;
 }
 
 .skeleton {
     background-image: url(https://cdn4.iconfinder.com/data/icons/halloween-2193/64/skeleton-human-halloween-bone-scary-512.png), url(https://img.freepik.com/free-vector/cartoon-style-stone-texture_1110-877.jpg?size=338&ext=jpg);
-    width:5vw;
+    width: 7vw;
     background-size: cover;
 }

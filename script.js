@@ -8,7 +8,7 @@ const LEVEL_1 = [
     ["*","*","*","*","*",".",".",".",".",".",".",".","*"],
     ["*","*","*","*","*",".","*","*","*","*","*","*","*"],
     ["*",".",".",".",".",".",".",".",".",".","*","*","*"],
-    ["*",".","*","*","*","*","*","*",".",".",".","*","*"],
+    ["*",".","*","*","*","*","*","*",".","E",".","*","*"],
     ["*",".",".",".",".","*","*","*","*","*","*","*","*"],
     ["*","*","*","*","*","*","*","*","*","*","*","*","*"]
   ]
@@ -40,17 +40,45 @@ const LEVEL_1 = [
 
 
 
-  clear = () =>  {  
+clear = () =>  {  
     let x = document.getElementById('maze')
     x.remove()
-    // let main = document.querySelector('main')
-    // for (let i = 4; i >=1 ; i--) {
-    //     console.log('hi');
-    //     x.remove()
-        
-    // }
 }
 
+window.addEventListener('keydown', (event) => {
+    if( event.key === " ") {
+        clear()
+    } 
+})
+
+maze2 = () => {
+    let main = document.querySelector('main')
+        let maze = document.createElement('div')
+        maze.setAttribute('id', 'maze')
+        main.append(maze)
+        n = 0
+        LEVEL_2.forEach(element => {
+            let divx = document.createElement('div')
+            divx.setAttribute('class', "divX")
+        
+                LEVEL_2[n].forEach(element => {
+                    let divy = document.createElement('p')
+                    divx.append(divy)
+                    //divy.append(element)
+                    if (element === '*') {
+                        divy.setAttribute('class', 'wall')
+                    } else if ( element === '.') {
+                        divy.setAttribute('class', 'path')
+                    } else if ( element === 'S') {
+                        divy.setAttribute('class', 'hero')
+                    } else {
+                        divy.setAttribute('class', 'treasure')
+                    }
+                });
+            maze.append(divx)
+            n += 1
+        });
+}
 
     createMaze = () => {
         let main = document.querySelector('main')
@@ -72,8 +100,10 @@ const LEVEL_1 = [
                         divy.setAttribute('class', 'path')
                     } else if ( element === 'S') {
                         divy.setAttribute('class', 'hero')
-                    } else {
+                    } else if (element === 'T') {
                         divy.setAttribute('class', 'treasure')
+                    } else {
+                        divy.setAttribute('class', 'skeleton')
                     }
                 });
             maze.append(divx)
@@ -104,9 +134,18 @@ window.addEventListener('keydown', (event) => {
                 }
                 else if (elementParent[xofS+1] === "*") {
                     break;
-                } 
+                }
+                else if(elementParent[xofS+1] === "T")  {
+                    console.log('presque');
+                    alert('Bien joué, Grace à toi, Jack va pouvoir investir dans le Bitcoin')
+                    clear()
+                    maze2()
+                    break
+
+                }
             }
         }
+        
 
     }
 })
@@ -185,10 +224,9 @@ window.addEventListener('keydown', (event) => {
                     console.log(LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS]);
                     if (LEVEL_1[LEVEL_1.indexOf(elementParent) - 1][xofS] === "*") {
                         createMaze()
-
                         return
                     } else {
-                        elementParent.splice(xofS, 1, '.')
+                    elementParent.splice(xofS, 1, '.')
                     LEVEL_1[LEVEL_1.indexOf(elementParent) - 1].splice(xofS, 1, 'S')
                     console.log(xofS);
                     //clear()
@@ -205,5 +243,6 @@ window.addEventListener('keydown', (event) => {
 
 window.addEventListener('keydown', (event) => {
     if( event.key === " ") {
+        clear()
     } 
 })
