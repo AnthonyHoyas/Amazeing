@@ -8,11 +8,15 @@ main {
     width: 250px;
     height: 250px;
 }
+#maze {
+    width: 250px;
+    height: 250px;
+}
 p {
     text-align: center;
 }
 
-div {
+.divX {
     display: flex;
     justify-content: space-between;
 }
